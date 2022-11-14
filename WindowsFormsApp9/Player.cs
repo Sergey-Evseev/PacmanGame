@@ -19,10 +19,10 @@ namespace WindowsFormsApp9
     }
     internal class Player
     {
-        private Point point;
-        Direction directionState;
+        private Point point; //объект с координатами персонажа (X и Y верхнего угла)
+        Direction directionState; //переменная перечисления Direction
         Thread thread;
-        bool isRunning;
+        public bool isRunning { get; set;} //флаг состояния движения
         int speed;
         public Player(Point point)
         {
@@ -33,6 +33,7 @@ namespace WindowsFormsApp9
             thread = new Thread(move);
         }
 
+        //возвращает текущее направление из enum Direction
         public Direction currentDirection()
         {
             return directionState;
@@ -62,7 +63,7 @@ namespace WindowsFormsApp9
             if (directionState != Direction.Stop)
             {
                 while (isRunning)
-                {
+                {   
                     switch (directionState)
                     {
                         case Direction.Left:
@@ -103,10 +104,18 @@ namespace WindowsFormsApp9
             point.Y = point.Y + dy;
         }
 
+        //конструктор объекта *********
         public void paint(Graphics graphics)
         {
             Rectangle rect = new Rectangle(point, new Size(50, 50));
             graphics.FillRectangle(new SolidBrush(Color.Red), rect);
         }
+        
+        
+        //public bool OnTouch(Point point, Size size)
+        //{
+
+        //    return;
+        //}
     }
 }
