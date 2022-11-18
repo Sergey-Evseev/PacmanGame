@@ -72,7 +72,7 @@ namespace WindowsFormsApp9
         }
         public void print(object e, PaintEventArgs args)
         {
-            MessageBox.Show("swrfvg");
+            MessageBox.Show("swrfvg"); 
         }
 
         //private void button1_Click(object sender, EventArgs e)
